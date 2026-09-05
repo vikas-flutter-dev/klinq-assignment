@@ -8,6 +8,7 @@
     <color name="success">#2E7D32</color>
     <color name="error">#B3261E</color>
     <color name="transparent">#00000000</color>
+    <color name="button_disabled">#CCCCCC</color>
 
     <!-- Legacy aliases kept for existing drawables/adapters. -->
     <color name="klinq_background">#FFFFFF</color>

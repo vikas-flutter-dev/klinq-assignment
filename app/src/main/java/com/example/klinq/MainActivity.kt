@@ -92,12 +92,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.minusButton.setOnClickListener {
             val qty = binding.quantityText.text.toString().toIntOrNull() ?: 1
-            if (qty > 1) binding.quantityText.text = (qty - 1).toString()
+            if (qty > 1) updateQuantity(qty - 1)
         }
         binding.plusButton.setOnClickListener {
             val qty = binding.quantityText.text.toString().toIntOrNull() ?: 1
-            if (qty < stockQty) binding.quantityText.text = (qty + 1).toString()
+            if (stockQty <= 0 || qty < stockQty) updateQuantity(qty + 1)
         }
+        updateQuantity(1)
     }
 
     private fun observeState() {
@@ -152,6 +153,7 @@ class MainActivity : AppCompatActivity() {
         binding.skuText.text = "SKU: ${product.sku.orEmpty()}"
         binding.priceText.text = "${formatPrice(product.finalPrice ?: product.price)} KWD"
         stockQty = product.remainingQty ?: 0
+        updateQuantity(binding.quantityText.text.toString().toIntOrNull() ?: 1)
 
         val selectedFileName = product.image?.substringAfterLast("/")
         val defaultVariant = product.configurableOptions
@@ -242,6 +244,13 @@ class MainActivity : AppCompatActivity() {
     private fun formatPrice(value: String?): String {
         val amount = value?.toDoubleOrNull() ?: 0.0
         return String.format(Locale.US, "%.2f", amount)
+    }
+
+    private fun updateQuantity(newQty: Int) {
+        val currentQty = newQty.coerceAtLeast(1)
+        binding.quantityText.text = currentQty.toString()
+        binding.minusButton.isEnabled = currentQty > 1
+        binding.plusButton.isEnabled = stockQty <= 0 || currentQty < stockQty
     }
 
     private fun Int.dp(): Int = (this * resources.displayMetrics.density).toInt()
