@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_dark">#333333</color>
+    <color name="text_light">#8F8F8F</color>
+    <color name="border">#E3E3E3</color>
+    <color name="success">#2E7D32</color>
+    <color name="error">#B3261E</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Legacy aliases kept for existing drawables/adapters. -->
+    <color name="klinq_background">#FFFFFF</color>
+    <color name="klinq_black">#111111</color>
+    <color name="klinq_text">#333333</color>
+    <color name="klinq_muted">#8F8F8F</color>
+    <color name="klinq_border">#E3E3E3</color>
+    <color name="klinq_surface">#FFFFFF</color>
+    <color name="klinq_success">#2E7D32</color>
+</resources>
