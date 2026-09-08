@@ -7,11 +7,16 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -53,9 +58,43 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupUi() {
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        enableEdgeToEdge()
+        WindowInsetsControllerCompat(window, binding.root).apply {
+            isAppearanceLightStatusBars = true
+            isAppearanceLightNavigationBars = true
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val statusBarInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+            val navBarInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+
+            binding.topBar.updatePadding(
+                left = 10.dp(),
+                top = statusBarInset,
+                right = 10.dp(),
+                bottom = 0
+            )
+            binding.topBar.layoutParams = binding.topBar.layoutParams.apply {
+                height = 56.dp() + statusBarInset
+            }
+
+            val scrollParams = binding.contentScroll.layoutParams as ViewGroup.MarginLayoutParams
+            scrollParams.topMargin = 56.dp() + statusBarInset
+            binding.contentScroll.layoutParams = scrollParams
+
+            binding.bottomBar.updatePadding(
+                left = 26.dp(),
+                top = 8.dp(),
+                right = 26.dp(),
+                bottom = 12.dp() + navBarInset
+            )
+
+            binding.bottomBar.post {
+                binding.contentScroll.updatePadding(bottom = binding.bottomBar.height)
+            }
+
+            insets
+        }
 
         binding.backButton.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.favoriteButton.setOnClickListener {
