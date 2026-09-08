@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="74dp"
-    android:layout_height="74dp"
+    android:layout_width="@dimen/color_item_size"
+    android:layout_height="@dimen/color_item_size"
     android:layout_marginEnd="9dp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/colorCard"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
+        android:layout_width="@dimen/color_card_size"
+        android:layout_height="@dimen/color_card_size"
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="34dp"
+        app:cardCornerRadius="50dp"
         app:cardElevation="0dp"
         app:strokeColor="@color/border"
         app:strokeWidth="1dp" />
 
     <ImageView
         android:id="@+id/colorImage"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/color_image_size"
+        android:layout_height="@dimen/color_image_size"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:background="@drawable/bg_circle"

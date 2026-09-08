@@ -65,29 +65,35 @@ class MainActivity : AppCompatActivity() {
             isAppearanceLightNavigationBars = true
         }
 
+        val topBarHeight = resources.getDimensionPixelSize(R.dimen.top_bar_height)
+        val topBarPaddingH = resources.getDimensionPixelSize(R.dimen.top_bar_padding_horizontal)
+        val bottomBarPaddingH = resources.getDimensionPixelSize(R.dimen.bottom_bar_padding_horizontal)
+        val bottomBarPaddingT = resources.getDimensionPixelSize(R.dimen.bottom_bar_padding_top)
+        val bottomBarPaddingB = resources.getDimensionPixelSize(R.dimen.bottom_bar_padding_bottom)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
             val statusBarInset = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
             val navBarInset = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
 
             binding.topBar.updatePadding(
-                left = 10.dp(),
+                left = topBarPaddingH,
                 top = statusBarInset,
-                right = 10.dp(),
+                right = topBarPaddingH,
                 bottom = 0
             )
             binding.topBar.layoutParams = binding.topBar.layoutParams.apply {
-                height = 56.dp() + statusBarInset
+                height = topBarHeight + statusBarInset
             }
 
             val scrollParams = binding.contentScroll.layoutParams as ViewGroup.MarginLayoutParams
-            scrollParams.topMargin = 56.dp() + statusBarInset
+            scrollParams.topMargin = topBarHeight + statusBarInset
             binding.contentScroll.layoutParams = scrollParams
 
             binding.bottomBar.updatePadding(
-                left = 26.dp(),
-                top = 8.dp(),
-                right = 26.dp(),
-                bottom = 12.dp() + navBarInset
+                left = bottomBarPaddingH,
+                top = bottomBarPaddingT,
+                right = bottomBarPaddingH,
+                bottom = bottomBarPaddingB + navBarInset
             )
 
             insets

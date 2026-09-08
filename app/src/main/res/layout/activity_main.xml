@@ -9,16 +9,16 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="56dp"
+        android:minHeight="@dimen/top_bar_height"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="10dp">
+        android:paddingHorizontal="@dimen/top_bar_padding_horizontal">
 
         <ImageButton
             android:id="@+id/backButton"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="@dimen/top_bar_back_button_size"
+            android:layout_height="@dimen/top_bar_back_button_size"
             android:background="@android:color/transparent"
             android:contentDescription="Back"
             android:padding="10dp"
@@ -34,34 +34,34 @@
             android:maxLines="1"
             android:text="Once Collection Weekly"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="@dimen/top_bar_title_size"
             android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/favoriteButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/top_bar_icon_button_size"
+            android:layout_height="@dimen/top_bar_icon_button_size"
             android:background="@android:color/transparent"
             android:contentDescription="Wishlist"
-            android:padding="9dp"
+            android:padding="@dimen/top_bar_icon_padding"
             android:src="@drawable/ic_favorite_border" />
 
         <ImageButton
             android:id="@+id/shareButtonTop"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/top_bar_icon_button_size"
+            android:layout_height="@dimen/top_bar_icon_button_size"
             android:background="@android:color/transparent"
             android:contentDescription="Share"
-            android:padding="9dp"
+            android:padding="@dimen/top_bar_icon_padding"
             android:src="@drawable/ic_share" />
 
         <ImageButton
             android:id="@+id/bagButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/top_bar_icon_button_size"
+            android:layout_height="@dimen/top_bar_icon_button_size"
             android:background="@android:color/transparent"
             android:contentDescription="Bag"
-            android:padding="9dp"
+            android:padding="@dimen/top_bar_icon_padding"
             android:src="@drawable/ic_bag" />
     </LinearLayout>
 
@@ -69,11 +69,11 @@
         android:id="@+id/contentScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="@dimen/top_bar_height"
         android:clipToPadding="false"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:paddingBottom="180dp">
+        android:paddingBottom="@dimen/scroll_padding_bottom">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,7 +89,7 @@
             <LinearLayout
                 android:id="@+id/pageDotsContainer"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="@dimen/page_dots_container_height"
                 android:gravity="center"
                 android:orientation="horizontal" />
 
@@ -97,8 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp"
-                android:paddingBottom="16dp">
+                android:paddingHorizontal="@dimen/content_padding_horizontal"
+                android:paddingBottom="@dimen/content_padding_bottom">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -113,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="@color/black"
-                        android:textSize="19sp"
+                        android:textSize="@dimen/brand_text_size"
                         android:textStyle="bold" />
 
                     <TextView
@@ -121,7 +121,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="19sp"
+                        android:textSize="@dimen/price_text_size"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/text_dark"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/product_name_text_size" />
 
                 <TextView
                     android:id="@+id/skuText"
@@ -139,21 +139,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/text_light"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/sku_text_size" />
 
                 <TextView
                     android:id="@+id/colorLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="42dp"
+                    android:layout_marginTop="32dp"
                     android:text="Color:"
                     android:textColor="@color/text_dark"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/section_label_text_size" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/colorList"
                     android:layout_width="match_parent"
-                    android:layout_height="86dp"
+                    android:layout_height="@dimen/color_list_height"
                     android:layout_marginTop="14dp"
                     android:clipToPadding="false"
                     android:overScrollMode="never"
@@ -162,7 +162,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/installmentCard"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="@dimen/installment_card_height"
                     android:layout_marginTop="4dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="7dp"
@@ -184,7 +184,7 @@
                             android:layout_weight="1"
                             android:text="or 4 interest-free payments&#10;0.88 KWD"
                             android:textColor="@color/text_dark"
-                            android:textSize="11sp" />
+                            android:textSize="@dimen/installment_text_size" />
 
                         <TextView
                             android:id="@+id/learnMoreText"
@@ -193,7 +193,7 @@
                             android:layout_marginStart="6dp"
                             android:text="Learn More"
                             android:textColor="@color/text_dark"
-                            android:textSize="10sp"
+                            android:textSize="@dimen/learn_more_text_size"
                             android:textStyle="bold" />
 
                         <TextView
@@ -205,7 +205,7 @@
                             android:paddingVertical="4dp"
                             android:text="tabby"
                             android:textColor="@color/black"
-                            android:textSize="11sp"
+                            android:textSize="@dimen/tabby_badge_text_size"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -217,52 +217,52 @@
                     android:layout_marginTop="13dp"
                     android:text="Quantity"
                     android:textColor="@color/text_dark"
-                    android:textSize="13sp" />
+                    android:textSize="@dimen/quantity_label_text_size" />
 
                 <LinearLayout
                     android:id="@+id/quantityContainer"
-                    android:layout_width="126dp"
-                    android:layout_height="38dp"
+                    android:layout_width="@dimen/quantity_container_width"
+                    android:layout_height="@dimen/quantity_container_height"
                     android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/minusButton"
-                        android:layout_width="38dp"
+                        android:layout_width="@dimen/quantity_button_width"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_quantity_button"
                         android:enabled="false"
                         android:gravity="center"
                         android:text="-"
                         android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/quantity_button_text_size" />
 
                     <TextView
                         android:id="@+id/quantityText"
-                        android:layout_width="50dp"
+                        android:layout_width="@dimen/quantity_text_width"
                         android:layout_height="match_parent"
                         android:layout_marginHorizontal="2dp"
                         android:background="@drawable/bg_outline"
                         android:gravity="center"
                         android:text="1"
                         android:textColor="@color/text_dark"
-                        android:textSize="13sp" />
+                        android:textSize="@dimen/quantity_value_text_size" />
 
                     <TextView
                         android:id="@+id/plusButton"
-                        android:layout_width="38dp"
+                        android:layout_width="@dimen/quantity_button_width"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_quantity_button"
                         android:gravity="center"
                         android:text="+"
                         android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/quantity_button_text_size" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/productInfoHeader"
                     android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    android:layout_height="@dimen/product_info_header_height"
                     android:layout_marginTop="22dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
@@ -273,12 +273,12 @@
                         android:layout_weight="1"
                         android:text="PRODUCT INFORMATION"
                         android:textColor="@color/text_dark"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/product_info_header_text_size" />
 
                     <ImageView
                         android:id="@+id/productInfoArrow"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="@dimen/product_info_arrow_size"
+                        android:layout_height="@dimen/product_info_arrow_size"
                         android:contentDescription="Expand product information"
                         android:rotation="180"
                         android:src="@drawable/ic_expand" />
@@ -290,7 +290,7 @@
                     android:layout_height="wrap_content"
                     android:lineSpacingExtra="2dp"
                     android:textColor="@color/text_light"
-                    android:textSize="12sp" />
+                    android:textSize="@dimen/description_text_size" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -310,31 +310,31 @@
         android:background="@color/white"
         android:elevation="10dp"
         android:orientation="vertical"
-        android:paddingHorizontal="26dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="12dp">
+        android:paddingHorizontal="@dimen/bottom_bar_padding_horizontal"
+        android:paddingTop="@dimen/bottom_bar_padding_top"
+        android:paddingBottom="@dimen/bottom_bar_padding_bottom">
 
         <TextView
             android:id="@+id/addToBagButton"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="@dimen/primary_button_height"
             android:background="@drawable/bg_primary_button"
             android:gravity="center"
             android:text="Add to bag"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/button_text_size"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/shareButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
+            android:layout_height="@dimen/secondary_button_height"
+            android:layout_marginTop="@dimen/button_space"
             android:background="@drawable/bg_share_button"
             android:gravity="center"
             android:text="Share"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="@dimen/button_text_size"
             android:textStyle="bold" />
     </LinearLayout>
 

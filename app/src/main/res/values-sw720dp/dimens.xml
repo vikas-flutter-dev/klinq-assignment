@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Top Bar -->
+    <dimen name="top_bar_height">72dp</dimen>
+    <dimen name="top_bar_padding_horizontal">48dp</dimen>
+    <dimen name="top_bar_icon_button_size">52dp</dimen>
+    <dimen name="top_bar_back_button_size">52dp</dimen>
+    <dimen name="top_bar_icon_padding">12dp</dimen>
+    <dimen name="top_bar_title_size">24sp</dimen>
+
+    <!-- Content Area Padding & Margins -->
+    <dimen name="content_padding_horizontal">80dp</dimen>
+    <dimen name="content_padding_bottom">32dp</dimen>
+    <dimen name="scroll_padding_bottom">220dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="brand_text_size">24sp</dimen>
+    <dimen name="price_text_size">24sp</dimen>
+    <dimen name="product_name_text_size">22sp</dimen>
+    <dimen name="sku_text_size">18sp</dimen>
+    <dimen name="section_label_text_size">20sp</dimen>
+    <dimen name="description_text_size">16sp</dimen>
+
+    <!-- Page Dots -->
+    <dimen name="page_dot_size">18dp</dimen>
+    <dimen name="page_dot_margin">5dp</dimen>
+    <dimen name="page_dots_container_height">40dp</dimen>
+
+    <!-- Color Swatches -->
+    <dimen name="color_list_height">104dp</dimen>
+    <dimen name="color_item_size">92dp</dimen>
+    <dimen name="color_card_size">84dp</dimen>
+    <dimen name="color_image_size">76dp</dimen>
+
+    <!-- Installment Card -->
+    <dimen name="installment_card_height">60dp</dimen>
+    <dimen name="installment_text_size">13sp</dimen>
+    <dimen name="learn_more_text_size">12sp</dimen>
+    <dimen name="tabby_badge_text_size">13sp</dimen>
+
+    <!-- Quantity Selector -->
+    <dimen name="quantity_label_text_size">15sp</dimen>
+    <dimen name="quantity_container_width">150dp</dimen>
+    <dimen name="quantity_container_height">48dp</dimen>
+    <dimen name="quantity_button_width">46dp</dimen>
+    <dimen name="quantity_text_width">58dp</dimen>
+    <dimen name="quantity_button_text_size">22sp</dimen>
+    <dimen name="quantity_value_text_size">16sp</dimen>
+
+    <!-- Product Info Accordion -->
+    <dimen name="product_info_header_height">60dp</dimen>
+    <dimen name="product_info_header_text_size">18sp</dimen>
+    <dimen name="product_info_arrow_size">26dp</dimen>
+
+    <!-- Bottom Action Bar -->
+    <dimen name="bottom_bar_padding_horizontal">120dp</dimen>
+    <dimen name="bottom_bar_padding_top">16dp</dimen>
+    <dimen name="bottom_bar_padding_bottom">20dp</dimen>
+    <dimen name="primary_button_height">60dp</dimen>
+    <dimen name="secondary_button_height">56dp</dimen>
+    <dimen name="button_text_size">22sp</dimen>
+    <dimen name="button_space">12dp</dimen>
+
+    <!-- Thumbnails -->
+    <dimen name="thumbnail_card_size">80dp</dimen>
+</resources>
