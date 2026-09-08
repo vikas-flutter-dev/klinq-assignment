@@ -73,7 +73,7 @@
         android:clipToPadding="false"
         android:fillViewport="true"
         android:overScrollMode="never"
-        android:paddingBottom="116dp">
+        android:paddingBottom="180dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,7 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="15dp">
+                android:paddingHorizontal="15dp"
+                android:paddingBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"

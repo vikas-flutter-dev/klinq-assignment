@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var colorVariantAdapter: ColorVariantAdapter
     private var productInfoExpanded = true
     private var stockQty = 0
+    private var isFavorite = false
 
     private val viewModel: ProductDetailsViewModel by viewModels {
         ProductDetailsViewModel.Factory(
@@ -89,17 +90,24 @@ class MainActivity : AppCompatActivity() {
                 bottom = 12.dp() + navBarInset
             )
 
-            binding.bottomBar.post {
-                binding.contentScroll.updatePadding(bottom = binding.bottomBar.height)
-            }
-
             insets
+        }
+
+        binding.bottomBar.addOnLayoutChangeListener { _, _, top, _, bottom, _, _, _, _ ->
+            val bottomBarHeight = bottom - top
+            if (bottomBarHeight > 0) {
+                binding.contentScroll.updatePadding(bottom = bottomBarHeight + 16.dp())
+            }
         }
 
         binding.backButton.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
         binding.favoriteButton.setOnClickListener {
-            Toast.makeText(this, "Added to wishlist", Toast.LENGTH_SHORT).show()
+            isFavorite = !isFavorite
+            updateFavoriteButton()
+            val message = if (isFavorite) "Added to wishlist" else "Removed from wishlist"
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
+        updateFavoriteButton()
         binding.shareButtonTop.setOnClickListener { shareProduct() }
         binding.bagButton.setOnClickListener { binding.contentScroll.smoothScrollTo(0, binding.bottomBar.top) }
         binding.shareButton.setOnClickListener { shareProduct() }
@@ -223,12 +231,20 @@ class MainActivity : AppCompatActivity() {
         val price = (product.finalPrice ?: product.price)?.toDoubleOrNull() ?: 0.0
         binding.installmentText.text = "or 4 interest-free payments\n${String.format(Locale.US, "%.2f", price / 4)} KWD"
 
-        binding.descriptionText.text = HtmlCompat.fromHtml(
-            product.description.orEmpty(),
-            HtmlCompat.FROM_HTML_MODE_LEGACY
-        )
+        binding.descriptionText.text = renderHtmlDescription(product.description)
         binding.descriptionText.movementMethod = LinkMovementMethod.getInstance()
         setProductInfoExpanded(true)
+    }
+
+    private fun renderHtmlDescription(html: String?): CharSequence {
+        if (html.isNullOrBlank()) return ""
+        val spanned = HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT)
+        return spanned.trimEnd()
+    }
+
+    private fun updateFavoriteButton() {
+        val iconRes = if (isFavorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border
+        binding.favoriteButton.setImageResource(iconRes)
     }
 
     private fun showVariant(variant: ProductVariant) {
